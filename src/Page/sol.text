@@ -1,0 +1,28 @@
+
+pragma solidity ^0.8.0;
+
+
+contract One{
+
+
+struct Image{
+
+    address add;
+
+    string url;
+}
+
+mapping(address=>Image)public AddImg;
+
+function upload(address _add , string memory _url)public{
+AddImg[msg.sender]=Image(_add , _url);
+
+}
+
+function CheckInfo(address user_Id)public view returns(Image memory){
+
+return AddImg[user_Id];
+
+}
+
+}
